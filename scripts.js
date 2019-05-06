@@ -1,5 +1,6 @@
 'use strict';
 
+
 //Clean up API URL to make it easy to configure.
 var app = {
 		baseUrl : 'https://cors-anywhere.herokuapp.com/https://jobs.github.com/',
@@ -35,15 +36,21 @@ var request = $.getJSON(app.url, function(data) {
 			'	<h5>'+job.location+'</h5>',
 			'	<p class="job-desc hidden">'+job.description.substring(0, 300)+(job.description.length > 300 ? '...':'')+'</p>',
 			'</div>'
-		]; // This is one among many ways to build out HTML
+		]; // This is one among many ways to build out html. I chose this because it's cheap & clean.
 		container1.append(output.join('')); //Join the array into a string & append it to container1.
 	});
 });
 
 // This will toggle the "hidden" class of the child nodes of any card that you click.
+// A cleaner way of showing job details rather than displaying a button.
 $(document).on('click', '.card', function() {
 	var children = $(this).find('.job-desc');
 	children.toggleClass('hidden');
 });
 
-
+//If you still want to use a button, this is how you can do that.
+//Assuming the following exists in each card: <button class="show-job-btn">Click Me!</button>
+$(document).on('click', '.show-job-btn', function() {
+	var children = $(this).closest('.job-desc');
+	children.toggleClass('hidden');
+});
