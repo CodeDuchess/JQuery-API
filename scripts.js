@@ -1,6 +1,5 @@
 'use strict';
 
-
 //Clean up API URL to make it easy to configure.
 var app = {
 		baseUrl : 'https://cors-anywhere.herokuapp.com/https://jobs.github.com/',
@@ -48,9 +47,3 @@ $(document).on('click', '.card', function() {
 	children.toggleClass('hidden');
 });
 
-//If you still want to use a button, this is how you can do that.
-//Assuming the following exists in each card: <button class="show-job-btn">Click Me!</button>
-$(document).on('click', '.show-job-btn', function() {
-	var children = $(this).closest('.job-desc');
-	children.toggleClass('hidden');
-});
