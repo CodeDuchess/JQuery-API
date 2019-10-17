@@ -12,7 +12,7 @@ var app = {
 		},
 		url : '',
 		data : '',
-		root : $('#root')
+		root : $("#root")
 	};
 	app.url = app.baseUrl+app.target+'?'+$.param(app.params); //$.param() encodes the params object to be used in the http request.
 
